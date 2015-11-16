@@ -6,15 +6,28 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import org.bihe.bean.LoginUser;
+import org.bihe.bean.Person;
+import org.bihe.service.HandleCommand;
+import org.bihe.service.Service;
+import org.bihe.service.entityService.Login;
+
 public class Main {
+	
 
 	public static void main(String[] args) {
+		Socket socket=new Socket() ;
 		try {
-			Socket socket = new Socket("127.0.0.1", 8000);
+			HandleCommand hc;
+			Person p=new Person("siavash", "123");
+			Service s;
+			Login login=new Login(p);
+			hc=new HandleCommand(login, p);
+			socket= new Socket("127.0.0.1", 30000);
 			OutputStream os = socket.getOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 			String hi = "Hi";
-			oos.writeObject(hi);
+			oos.writeObject(hc);
 			oos.flush();
 			
 		} catch (UnknownHostException e) {
@@ -23,6 +36,13 @@ public class Main {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally{
+			try {
+				socket.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 	}

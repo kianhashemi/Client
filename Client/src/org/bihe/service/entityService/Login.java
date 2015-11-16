@@ -1,25 +1,26 @@
 package org.bihe.service.entityService;
 
+import java.io.Serializable;
+
 import org.bihe.bean.Person;
 import org.bihe.service.Service;
 
-public class Login implements Service {
-	
+public class Login implements Service, Serializable{
+
 	// -------------------------------------------------------------
 	// ------------------Instance Fields----------------------------
-	private Person pers;
-	
+	private Person person;
+
 	// -------------------------------------------------------------
 	// ------------------Constructor--------------------------------
-	public Login(Person pers) {
+	public Login(Person person) {
 		super();
-		this.pers = pers;
+		this.person = person;
 	}
 
 	@Override
-	public Service execute() {
-		
-		return null;
+	public Service execute(Object person) {
+		return this.person.loginUser((Person)person);
 	}
 
 }

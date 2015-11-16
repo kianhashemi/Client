@@ -1,8 +1,21 @@
 package org.bihe.bean;
 
-public class Person {
+import java.io.Serializable;
+
+import org.bihe.service.HandleCommand;
+import org.bihe.service.Service;
+
+public class Person implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6343348990555370081L;
 	// -------------------------------------------------------------
 	// ------------------Instance Fields----------------------------
+
+	/**
+	 * 
+	 */
 
 	private String firstName;
 	private String lastName;
@@ -19,6 +32,14 @@ public class Person {
 		this.username = username;
 		this.password = password;
 	}
+	// -------------------------------------------------------------
+	
+	public Person(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
 
 	// -------------------------------------------------------------
 	// ------------------Accessories--------------------------------
@@ -57,12 +78,10 @@ public class Person {
 
 	// -------------------------------------------------------------
 	// ------------------Constructor--------------------------------
-	public Person(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
-
+	
 	// -------------------------------------------------------------
 	// ------------------Login Method-------------------------------
+	public Service loginUser(Object p){
+		return null;
+	}
 }

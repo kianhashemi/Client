@@ -1,6 +1,12 @@
 package org.bihe.service;
 
-public interface Service {
-	public Service execute();
+import java.io.Serializable;
+
+import org.bihe.bean.Person;
+
+public interface Service extends Serializable{
+	static final long serialVersionUID = 7245560613798191609L;
+	
+	Service execute(Object object);
 
 }
