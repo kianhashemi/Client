@@ -72,9 +72,9 @@ public class Producer extends Person implements Runnable {
 	}
 
 	// -------------------------------------------------
-	public Demand sendAlarmToCoordinator() {
-		return null;
-		// TODO
+	public static void sendAlarmToCoordinator() {
+		
+		// TODO print send alarm log
 	}
 
 	// -------------------------------------------------

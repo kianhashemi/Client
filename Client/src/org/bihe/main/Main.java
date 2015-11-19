@@ -1,12 +1,12 @@
 package org.bihe.main;
 
-import java.io.IOException;
+import java.io.IOException; 
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import org.bihe.bean.LoginUser;
+
 import org.bihe.bean.Person;
 import org.bihe.service.HandleCommand;
 import org.bihe.service.Service;
@@ -18,16 +18,13 @@ public class Main {
 	public static void main(String[] args) {
 		Socket socket=new Socket() ;
 		try {
-			HandleCommand hc;
 			Person p=new Person("siavash", "123");
-			Service s;
 			Login login=new Login(p);
-			hc=new HandleCommand(login, p);
 			socket= new Socket("127.0.0.1", 30000);
 			OutputStream os = socket.getOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 			String hi = "Hi";
-			oos.writeObject(hc);
+			oos.writeObject(login);
 			oos.flush();
 			
 		} catch (UnknownHostException e) {

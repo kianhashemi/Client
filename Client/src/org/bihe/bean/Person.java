@@ -81,7 +81,7 @@ public class Person implements Serializable{
 	
 	// -------------------------------------------------------------
 	// ------------------Login Method-------------------------------
-	public Service loginUser(Object p){
-		return null;
+	public void loginUser(Object p){
+		
 	}
 }

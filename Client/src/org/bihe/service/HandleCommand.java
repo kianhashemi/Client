@@ -2,25 +2,23 @@ package org.bihe.service;
 
 import java.io.Serializable;
 
+import org.bihe.bean.Demand;
+import org.bihe.bean.Person;
+import org.bihe.bean.Producer;
+
 public class HandleCommand implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8245560613798191609L;
-	Service service;
-	Object object;
-
-	public HandleCommand(Service service, Object object) {
-		this.service = service;
-		this.object = object;
+	
+	public static void login(Person p){
 	}
-
-	public Service getService() {
-		return service;
+	public static void moveToWareHouse(Demand demand){
+		
 	}
-
-	public Object getObject() {
-		return object;
+	public static void sendAlarmToCoordinator(){
+		Producer.sendAlarmToCoordinator();
 	}
 
 }
